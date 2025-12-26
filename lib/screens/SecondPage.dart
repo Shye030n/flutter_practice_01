@@ -10,6 +10,10 @@ class SecondPage extends StatelessWidget {
       appBar: AppBar(title: Text("두번째 페이지 테스트중"),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        // start, end, center, spaceBetween, spaceAround, spaceEvenly
+        crossAxisAlignment: CrossAxisAlignment.end,
+        //baseline, center, end, stretch, 
         children: [
           Text("서현이는"),
           Text("해낸다."),
