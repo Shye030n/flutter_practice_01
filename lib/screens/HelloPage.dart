@@ -42,8 +42,9 @@ class HelloPage extends StatelessWidget {
                         )
               ),
 
-              GestureDetector( //위젯을 버튼화 해주는 위젯
+              GestureDetector( //모든 위젯을 버튼화 해주는 위젯
                 onTap: (){ //{ 이 괄호 안 =무명함수 =익명함수: 이름이 없는 함수로, 재활용되지 않는 함수}
+                  print("넘어갑니다"); //콘솔에 로그 출력 //간단한 디버그용 => "넘어갑니다"가 콘솔에 출력되면 onTap이 작동하는 것을 판단할 수 있음 
                   Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecondPage()));
                 },
                 child: Text("이 글자를 클릭하면 다음 페이지로 넘어간다",
