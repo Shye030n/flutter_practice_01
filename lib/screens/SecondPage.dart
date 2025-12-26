@@ -18,8 +18,6 @@ class SecondPage extends StatelessWidget {
           Text("서현이는"),
           Text("해낸다."),
 
-          GestureDetector( //모든 위젯을 버튼화 해주는 위젯
-
           /* 
           꼭 GestureDetector가 아니어도 
           ButtonWidget, TextButton, IconButton처럼 
@@ -27,7 +25,7 @@ class SecondPage extends StatelessWidget {
           하지만, 특별한 옵션없이 버튼화시키고 싶다면 
           GestureDetector 사용하면 됨. 
           */ 
-
+          GestureDetector( //모든 위젯을 버튼화 해주는 위젯
             onDoubleTap: () {
               Navigator.of(context).push(MaterialPageRoute(builder: (context) => HelloPage()));
             },
@@ -38,25 +36,34 @@ class SecondPage extends StatelessWidget {
               ),
           ),
           
-          //이미지 처리 1)asset_image => 정렬 세로
+          //이미지 처리 1)asset_image 
           Text("행복하게 누워있는 마루"),
           Image.asset('assets/images/akfn.jpg',
                       width: 100),
 
-          Row(
+          //overflow 에러 해결 방안 
+          // 1. width: height: 으로 크기 조정
+          // 2. *** Expended()로, 전체 길이를 에뮬레이터 가로 길이에 맞춤
+          //    Expended()는 화면의 남은 공간을 가로 길이에 맞춰 배치
+          //    현재 사진이 3개여서 가로를 1:1:1 비율로 나눠서 배치
+          //    비율은 flex로 설정하면 됨. flex는 비율임
+          Row( 
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-            Text("곤뇽이랑 놀고있는 행복한 마루"),
-            Image.asset('assets/images/IMG_2082.jpg',
-                        width: 100),
-            Text("고구마 들고 기분좋은 마루"),
-            Image.asset('assets/images/IMG_2745.jpg',
-                        width: 100),
-            Text("브이하는 귀여운 마루"),
-            Image.asset('assets/images/IMG_3028.jpg',
-                        width: 100),
-
-          ],),
+              Expanded(flex: 1, child: 
+                //Text("곤뇽이랑 놀고있는 행복한 마루"),
+                Image.asset('assets/images/IMG_2082.jpg'),
+              ),
+              Expanded(flex: 2, child: 
+                //Text("고구마 들고 기분좋은 마루"),
+                Image.asset('assets/images/IMG_2745.jpg'),
+              ),
+              Expanded(flex: 1, child: 
+                //Text("브이하는 귀여운 마루"),
+                Image.asset('assets/images/IMG_3028.jpg'),
+              ),
+            ],
+          ),
           //이미지 처리 2)online_image => 정렬 가로
           Row( 
             mainAxisAlignment: MainAxisAlignment.center,
