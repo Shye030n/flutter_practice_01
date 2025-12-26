@@ -12,7 +12,7 @@ class SecondPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         // start, end, center, spaceBetween, spaceAround, spaceEvenly
-        crossAxisAlignment: CrossAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.center,
         //baseline, center, end, stretch, 
         children: [
           Text("서현이는"),
@@ -38,27 +38,39 @@ class SecondPage extends StatelessWidget {
               ),
           ),
           
-          //이미지 처리 1)asset_image
+          //이미지 처리 1)asset_image => 정렬 세로
           Text("행복하게 누워있는 마루"),
-          Image.asset(
-                      'assets/images/akfn.jpg',
+          Image.asset('assets/images/akfn.jpg',
                       width: 100),
-          Text("곤뇽이랑 놀고있는 행복한 마루"),
-          Image.asset(
-                      'assets/images/IMG_2082.jpg',
-                      width: 100),
-          Text("고구마 들고 기분좋은 마루"),
-          Image.asset(
-                      'assets/images/IMG_2745.jpg',
-                      width: 100),
-          Text("브이하는 귀여운 마루"),
-          Image.asset(
-                      'assets/images/IMG_3028.jpg',
-                      width: 100),
-          //이미지 처리 2)online_image  
-          Text("고양이_온라인이미지"),
-          Image.network('https://cdn.pixabay.com/photo/2017/03/18/13/33/cat-2153990_1280.jpg',
-                        width: 100,),
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+            Text("곤뇽이랑 놀고있는 행복한 마루"),
+            Image.asset('assets/images/IMG_2082.jpg',
+                        width: 100),
+            Text("고구마 들고 기분좋은 마루"),
+            Image.asset('assets/images/IMG_2745.jpg',
+                        width: 100),
+            Text("브이하는 귀여운 마루"),
+            Image.asset('assets/images/IMG_3028.jpg',
+                        width: 100),
+
+          ],),
+          //이미지 처리 2)online_image => 정렬 가로
+          Row( 
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text("고양이_온라인이미지"),
+              Image.network('https://cdn.pixabay.com/photo/2017/03/18/13/33/cat-2153990_1280.jpg',
+                            width: 100,),
+              SizedBox(width: 200,), //이미지 사이에 200만큼 여백 생성
+              Text("강아지_온라인이미지"),
+              Image.network('https://cdn.pixabay.com/photo/2018/05/11/08/11/dog-3389729_1280.jpg',
+                            width: 100,),
+            ],
+          ),
         ],
       ),
       );
