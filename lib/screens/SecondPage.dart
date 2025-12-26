@@ -34,22 +34,27 @@ class SecondPage extends StatelessWidget {
               ),
           ),
           
+          //이미지 처리 1)asset_image
           Text("행복하게 누워있는 마루"),
           Image.asset(
                       'assets/images/akfn.jpg',
-                      width: 130),
+                      width: 100),
           Text("곤뇽이랑 놀고있는 행복한 마루"),
           Image.asset(
                       'assets/images/IMG_2082.jpg',
-                      width: 130),
+                      width: 100),
           Text("고구마 들고 기분좋은 마루"),
           Image.asset(
                       'assets/images/IMG_2745.jpg',
-                      width: 130),
+                      width: 100),
           Text("브이하는 귀여운 마루"),
           Image.asset(
                       'assets/images/IMG_3028.jpg',
-                      width: 130),
+                      width: 100),
+          //이미지 처리 2)online_image  
+          Text("고양이_온라인이미지"),
+          Image.network('https://cdn.pixabay.com/photo/2017/03/18/13/33/cat-2153990_1280.jpg',
+                        width: 100,),
         ],
       ),
       );
